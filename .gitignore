@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Local device backups / dumps
+cidoo-record.bin
+cidoo-template*.bin
+!examples/*.bin
+
+# Editor / OS noise
+*.swp
+.DS_Store

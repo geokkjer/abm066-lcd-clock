@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync the CIDOO ABM066 LCD clock over USB
+Documentation=https://github.com/geokkjer/abm066-lcd-clock
+
+[Service]
+Type=oneshot
+# --quiet makes this exit 0 when the keyboard is not in wired USB mode, so the
+# timer stays silent while you are on Bluetooth or 2.4 GHz.
+ExecStart=%h/.local/bin/abm066-clock set --quiet

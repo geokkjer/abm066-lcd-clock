@@ -1,0 +1,17 @@
+[Unit]
+Description=Periodically sync the CIDOO ABM066 LCD clock
+
+[Timer]
+# Soon after login, then every 6 hours while the machine is up.
+#
+# The sync only succeeds when the keyboard is in wired USB mode -- the vendor
+# screen interface does not exist over Bluetooth or 2.4 GHz. Each successful run
+# rewrites one 48-byte config record in the keyboard's flash, so this deliberately
+# stays at 4 attempts/day rather than polling every few minutes.
+OnBootSec=1min
+OnUnitActiveSec=6h
+AccuracySec=1min
+Unit=abm066-clock.service
+
+[Install]
+WantedBy=timers.target
