@@ -165,6 +165,26 @@ does by itself: mode switch behaviour, every `FN` hotkey, the four layers and
 which key activates each, every keycap legend (`Hue±`, `RGB Md+`, `MO(2)`…),
 and the sleep/charging rules.
 
+## A note on the software
+
+The hardware is genuinely good: solid build, tri-mode connectivity, and a
+usable little screen. The software is the weak part, and it is the reason this
+repository exists at all.
+
+The vendor configuration tool is Windows-only. More awkward for anyone
+automating this keyboard is that the firmware does not reliably do what the
+interfaces it advertises imply. A configuration write can be acknowledged and
+then quietly not applied — so nothing here trusts a success response. Every
+operation verifies itself by reading the state back, and that read-back is
+load-bearing rather than defensive politeness. Working around this, and around
+one or two features that are simply absent, accounted for most of the effort in
+this repository.
+
+None of that is unique to this keyboard. It is a decent argument for two
+unremarkable things: implement the standards your protocol claims to follow,
+and open the firmware. Either one would have made most of this work
+unnecessary.
+
 ## Credits
 
 The HID protocol was **not** discovered here. It comes from
